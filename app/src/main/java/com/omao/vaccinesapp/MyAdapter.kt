@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapter(val vaccineList: ArrayList<VaccineModel>): RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
@@ -16,6 +17,14 @@ class MyAdapter(val vaccineList: ArrayList<VaccineModel>): RecyclerView.Adapter<
         init {
             vaccineImage = itemView.findViewById(R.id.image_view)
             vaccineTitle = itemView.findViewById(R.id.tv_1)
+
+            itemView.setOnClickListener() {
+                Toast.makeText(itemView.context,
+                    "Go Get The ${vaccineList[adapterPosition].name} Vaccine",
+                    Toast.LENGTH_SHORT
+                    ).show()
+            }
+
         }
 
     }
