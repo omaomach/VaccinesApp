@@ -2,6 +2,7 @@ package com.omao.vaccinesapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -11,6 +12,10 @@ class MainActivity : AppCompatActivity() {
 
         // 1- AdapterView: RecyclerView
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
+        recyclerView.layoutManager = LinearLayoutManager(this,
+                LinearLayoutManager.VERTICAL,
+                false
+            )
 
         // 2- Data Source: List of VaccineModel Objects
         var vaccinesList: ArrayList<VaccineModel> = ArrayList()
@@ -31,6 +36,9 @@ class MainActivity : AppCompatActivity() {
         vaccinesList.add(v7)
 
         // 3 - Adapter
+        val adapter = MyAdapter(vaccinesList)
+        recyclerView.adapter = adapter
+
 
     }
 }
