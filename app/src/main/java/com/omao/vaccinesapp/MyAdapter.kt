@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MyAdapter(val VaccineList: ArrayList<VaccineModel>): RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter(val vaccineList: ArrayList<VaccineModel>): RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     inner class  MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         lateinit var vaccineImage: ImageView
@@ -54,7 +54,7 @@ class MyAdapter(val VaccineList: ArrayList<VaccineModel>): RecyclerView.Adapter<
      * @return The total number of items in this adapter.
      */
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return vaccineList.size
     }
 
     /**
@@ -79,7 +79,8 @@ class MyAdapter(val VaccineList: ArrayList<VaccineModel>): RecyclerView.Adapter<
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.vaccineTitle.text = vaccineList[position].name
+        holder.vaccineImage.setImageResource(vaccineList[position].image)
     }
 
 }
